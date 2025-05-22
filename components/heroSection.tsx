@@ -27,7 +27,7 @@ const words = [
 ];
 export default function HeroSection() {
   return (
-    <div className="relative w-full h-screen">
+    <div id="hero" className="relative w-full h-screen">
       <BackgroundBeams />
 
       <div className="flex flex-col sm:flex-row items-center sm:justify-center h-full gap-10 sm:gap-32 px-10 pt-30 sm:pt-0 relative z-10">
@@ -75,13 +75,13 @@ export default function HeroSection() {
           className="text-center order-1 sm:order-2"
         >
           <div className="overflow-hidden rounded-full border-4 border-white/20 relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-purple-500/60 to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl " />
+            <div className="absolute inset-0  bg-gradient-to-r from-purple-500/30 via-purple-500/60 to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-3xl " />
             <Image
               src="/icon.png"
               alt="Profile Photo"
               width={600}
               height={300}
-              className="rounded-full pt-10 sm:pt-15 md:pt-20 object-cover relative z-10"
+              className="rounded-full pt-10 sm:pt-15 md:pt-20 object-cover relative z-10 bg-black/40"
             />
           </div>
         </motion.div>
