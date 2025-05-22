@@ -24,13 +24,14 @@ export const TextHoverEffect = ({
       { threshold: 0.5 }
     );
 
-    if (svgRef.current) {
-      observer.observe(svgRef.current);
+    const currentRef = svgRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (svgRef.current) {
-        observer.unobserve(svgRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

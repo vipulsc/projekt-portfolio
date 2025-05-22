@@ -126,6 +126,16 @@ const CollisionMechanism = React.forwardRef<
   const [beamKey, setBeamKey] = useState(0);
   const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
 
+  // Merge the forwarded ref with our local ref
+  const mergedRef = (node: HTMLDivElement) => {
+    if (typeof ref === "function") {
+      ref(node);
+    } else if (ref) {
+      ref.current = node;
+    }
+    beamRef.current = node;
+  };
+
   useEffect(() => {
     const checkCollision = () => {
       if (
@@ -177,7 +187,7 @@ const CollisionMechanism = React.forwardRef<
     <>
       <motion.div
         key={beamKey}
-        ref={beamRef}
+        ref={mergedRef}
         animate="animate"
         initial={{
           translateY: beamOptions.initialY || "-200px",
