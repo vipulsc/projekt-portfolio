@@ -60,7 +60,7 @@ const IntroSection = () => {
   useEffect(() => {
     if (!typing) return;
     setDisplayedRole(roles[roleIndex].slice(0, 1));
-  }, [roleIndex]);
+  }, [roleIndex, typing]);
 
   return (
     <>
