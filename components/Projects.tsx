@@ -2,7 +2,6 @@
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { BackgroundBeamsWithCollision } from "@/components/ui/bg-beams";
-import useEmblaCarousel from "embla-carousel-react";
 import { useState } from "react";
 import { Vortex } from "./ui/vortex";
 
@@ -60,25 +59,23 @@ const allProjects = [
 ];
 
 export default function Projects() {
-  const [visibleProjects, setVisibleProjects] = useState(4);
-  const [emblaRef] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    slidesToScroll: 2,
-    dragFree: true,
-    containScroll: "trimSnaps",
-  });
+  const [visibleProjects, setVisibleProjects] = useState(2);
+  const [hasLoadedMore, setHasLoadedMore] = useState(false);
 
   const loadMore = () => {
-    setVisibleProjects((prev) => Math.min(prev + 2, allProjects.length));
+    setVisibleProjects((prev) => {
+      const next = prev + 2;
+      return next > allProjects.length ? allProjects.length : next;
+    });
+    setHasLoadedMore(true);
   };
 
   const hideProjects = () => {
-    setVisibleProjects(4);
+    setVisibleProjects(2);
+    setHasLoadedMore(false);
   };
 
-  const initialProjects = allProjects.slice(0, 4);
-  const additionalProjects = allProjects.slice(4, visibleProjects);
+  const displayedProjects = allProjects.slice(0, visibleProjects);
 
   return (
     <BackgroundBeamsWithCollision className="min-h-screen h-auto py-[50px] pt-[100px] bg-black">
@@ -91,141 +88,70 @@ export default function Projects() {
         </div>
 
         <div className="w-full max-w-7xl">
-          {/* Initial Projects Carousel */}
-          <div
-            className="overflow-hidden cursor-grab active:cursor-grabbing"
-            ref={emblaRef}
-          >
-            <div className="flex select-none">
-              {initialProjects.map((project, index) => (
-                <div key={index} className="flex-[0_0_50%] min-w-0 px-3">
-                  <CardContainer className="w-full">
-                    <CardBody className="bg-black/40 backdrop-blur-sm rounded-xl p-4 h-[450px] flex flex-col border border-white/10 hover:border-white/20 transition-all duration-300">
-                      <CardItem translateZ="100" className="w-full flex-grow">
-                        <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden group">
-                          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 via-pink-500/30 to-blue-500/30 group-hover:from-purple-500/40 group-hover:via-pink-500/40 group-hover:to-blue-500/40 transition-all duration-300" />
-                          <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-                            {project.title}
-                          </div>
-                        </div>
-                        <CardItem
-                          translateZ="60"
-                          className="text-white text-lg font-bold mb-2"
-                        >
-                          {project.title}
-                        </CardItem>
-                        <CardItem
-                          translateZ="50"
-                          className="text-neutral-300 text-sm mb-4"
-                        >
-                          {project.description}
-                        </CardItem>
-                        <CardItem
-                          translateZ="40"
-                          className="flex flex-wrap gap-2 mb-4"
-                        >
-                          {project.tags.map((tag, tagIndex) => (
-                            <span
-                              key={tagIndex}
-                              className="px-3 py-1 text-xs bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full text-white backdrop-blur-sm border border-white/10"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </CardItem>
-                      </CardItem>
-
-                      <div className="flex gap-3 mt-auto">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 px-4 py-2.5 text-sm text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg hover:from-purple-500/30 hover:to-blue-500/30 transition-all duration-300 text-center backdrop-blur-sm border border-white/10 hover:border-white/20"
-                        >
-                          GitHub
-                        </a>
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 px-4 py-2.5 text-sm text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg hover:from-purple-500/30 hover:to-blue-500/30 transition-all duration-300 text-center backdrop-blur-sm border border-white/10 hover:border-white/20"
-                        >
-                          Live Demo
-                        </a>
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {displayedProjects.map((project, index) => (
+              <CardContainer key={index} className="w-full">
+                <CardBody className="bg-black/40 backdrop-blur-sm rounded-xl p-4 h-[450px] flex flex-col border border-white/10 hover:border-white/20 transition-all duration-300">
+                  <CardItem translateZ="100" className="w-full flex-grow">
+                    <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 via-pink-500/30 to-blue-500/30 group-hover:from-purple-500/40 group-hover:via-pink-500/40 group-hover:to-blue-500/40 transition-all duration-300" />
+                      <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
+                        {project.title}
                       </div>
-                    </CardBody>
-                  </CardContainer>
-                </div>
-              ))}
-            </div>
+                    </div>
+                    <CardItem
+                      translateZ="60"
+                      className="text-white text-lg font-bold mb-2"
+                    >
+                      {project.title}
+                    </CardItem>
+                    <CardItem
+                      translateZ="50"
+                      className="text-neutral-300 text-sm mb-4"
+                    >
+                      {project.description}
+                    </CardItem>
+                    <CardItem
+                      translateZ="40"
+                      className="flex flex-wrap gap-2 mb-4"
+                    >
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-3 py-1 text-xs bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full text-white backdrop-blur-sm border border-white/10"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </CardItem>
+                  </CardItem>
+
+                  <div className="flex gap-3 mt-auto">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2.5 text-sm text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg hover:from-purple-500/30 hover:to-blue-500/30 transition-all duration-300 text-center backdrop-blur-sm border border-white/10 hover:border-white/20"
+                    >
+                      GitHub
+                    </a>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2.5 text-sm text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg hover:from-purple-500/30 hover:to-blue-500/30 transition-all duration-300 text-center backdrop-blur-sm border border-white/10 hover:border-white/20"
+                    >
+                      Live Demo
+                    </a>
+                  </div>
+                </CardBody>
+              </CardContainer>
+            ))}
           </div>
 
-          {/* Additional Projects Grid */}
-          {additionalProjects.length > 0 && (
-            <div className="-mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {additionalProjects.map((project, index) => (
-                <CardContainer key={index} className="w-full">
-                  <CardBody className="bg-black/40 backdrop-blur-sm rounded-xl p-4 h-[450px] flex flex-col border border-white/10 hover:border-white/20 transition-all duration-300">
-                    <CardItem translateZ="100" className="w-full flex-grow">
-                      <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 via-pink-500/30 to-blue-500/30 group-hover:from-purple-500/40 group-hover:via-pink-500/40 group-hover:to-blue-500/40 transition-all duration-300" />
-                        <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-                          {project.title}
-                        </div>
-                      </div>
-                      <CardItem
-                        translateZ="60"
-                        className="text-white text-lg font-bold mb-2"
-                      >
-                        {project.title}
-                      </CardItem>
-                      <CardItem
-                        translateZ="50"
-                        className="text-neutral-300 text-sm mb-4"
-                      >
-                        {project.description}
-                      </CardItem>
-                      <CardItem
-                        translateZ="40"
-                        className="flex flex-wrap gap-2 mb-4"
-                      >
-                        {project.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-3 py-1 text-xs bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full text-white backdrop-blur-sm border border-white/10"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </CardItem>
-                    </CardItem>
-
-                    <div className="flex gap-3 mt-auto">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 px-4 py-2.5 text-sm text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg hover:from-purple-500/30 hover:to-blue-500/30 transition-all duration-300 text-center backdrop-blur-sm border border-white/10 hover:border-white/20"
-                      >
-                        GitHub
-                      </a>
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 px-4 py-2.5 text-sm text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg hover:from-purple-500/30 hover:to-blue-500/30 transition-all duration-300 text-center backdrop-blur-sm border border-white/10 hover:border-white/20"
-                      >
-                        Live Demo
-                      </a>
-                    </div>
-                  </CardBody>
-                </CardContainer>
-              ))}
-            </div>
-          )}
-
           <div className="flex justify-center gap-4 mt-8">
-            {visibleProjects < allProjects.length && (
+            {!hasLoadedMore && visibleProjects < allProjects.length && (
               <button
                 onClick={loadMore}
                 className="px-6 py-3 text-white bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-blue-500/30 rounded-xl hover:from-purple-500/40 hover:via-pink-500/40 hover:to-blue-500/40 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/20"
@@ -233,7 +159,7 @@ export default function Projects() {
                 Load More Projects
               </button>
             )}
-            {additionalProjects.length > 0 && (
+            {visibleProjects > 2 && (
               <button
                 onClick={hideProjects}
                 className="px-6 py-3 text-white bg-gradient-to-r from-red-500/30 via-pink-500/30 to-purple-500/30 rounded-xl hover:from-red-500/40 hover:via-pink-500/40 hover:to-purple-500/40 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/20"
