@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 
 const ContactForm: React.FC = () => {
   return (
-    <section className="relative min-h-screen bg-black text-white flex flex-col justify-center items-center px-4 pt-10 overflow-hidden">
+    <section
+      id="contact"
+      className="relative min-h-screen bg-black text-white flex flex-col justify-center items-center px-4 pt-10 overflow-hidden"
+    >
       {/* Draggable Computer Emoji */}
       <motion.div
         className="absolute top-10 left-10 text-4xl cursor-grab active:cursor-grabbing"

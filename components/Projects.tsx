@@ -4,57 +4,49 @@ import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { BackgroundBeamsWithCollision } from "@/components/ui/bg-beams";
 import { useState } from "react";
 import { Vortex } from "./ui/vortex";
+import Image from "next/image";
 
 const allProjects = [
   {
-    title: "E-Commerce Platform",
+    title: "Projekt-Necto",
     description:
-      "A full-stack e-commerce platform built with Next.js and Stripe integration",
-    image: "/projects/ecommerce.jpg",
-    tags: ["Next.js", "Stripe", "TailwindCSS"],
-    github: "https://github.com/yourusername/ecommerce",
-    demo: "https://ecommerce-demo.com",
+      "AI SaaS for PDF summarization with Gemini/OpenAI and secure auth via Clerk.",
+    image: "/projects/necto.png",
+    tags: [
+      "Next.js 15",
+      "React 19",
+      "Gemini",
+      "OpenAI",
+      "LangChain",
+      "Tailwind CSS",
+    ],
+    github: "https://github.com/vipulsc/projekt-necto",
+    demo: "https://necto.sbs",
   },
   {
-    title: "AI Chat Application",
+    title: "Projekt-Saaraansh",
     description:
-      "Real-time chat application with AI-powered responses and sentiment analysis",
-    image: "/projects/chat.jpg",
-    tags: ["React", "OpenAI", "WebSocket"],
-    github: "https://github.com/yourusername/ai-chat",
-    demo: "https://ai-chat-demo.com",
+      "Live news summarizer with OpenAI, RapidAPI, and responsive UI.",
+    image: "/projects/saaraansh.png",
+    tags: ["React", "Tailwind CSS", "Redux Toolkit", "OpenAI", "RapidAPI"],
+    github: "https://github.com/vipulsc/projekt-saaraansh",
+    demo: "https://projekt-saaraansh.vercel.app",
   },
   {
-    title: "Portfolio Website",
+    title: "Projekt-Kinko",
     description:
-      "Modern portfolio website with 3D animations and interactive elements",
-    image: "/projects/portfolio.jpg",
-    tags: ["Three.js", "React", "Framer Motion"],
-    github: "https://github.com/yourusername/portfolio",
-    demo: "https://portfolio-demo.com",
+      "Solana wallet with seed phrase support and 0-storage key policy.",
+    image: "/projects/kinko.png",
+    tags: ["React", "Solana Web3.js", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/vipulsc/projekt-kinko",
+    demo: "https://projekt-kinko.vercel.app",
   },
   {
-    title: "Task Management App",
+    title: "Kitaabi Kidaa (Pustakalay)",
     description:
-      "Collaborative task management application with real-time updates",
-    image: "/projects/tasks.jpg",
-    tags: ["Vue.js", "Firebase", "TailwindCSS"],
-    github: "https://github.com/yourusername/task-manager",
-    demo: "https://task-manager-demo.com",
-  },
-  {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for social media management and insights",
-    tags: ["React", "D3.js", "Node.js"],
-    github: "https://github.com/yourusername/social-dashboard",
-    demo: "https://social-dashboard-demo.com",
-  },
-  {
-    title: "Weather App",
-    description: "Real-time weather application with location-based forecasts",
-    tags: ["React", "OpenWeather API", "Geolocation"],
-    github: "https://github.com/yourusername/weather-app",
-    demo: "https://weather-app-demo.com",
+      "Bookstore backend with user auth, admin control, cart, and favourites using Node.js, Express, and MongoDB.",
+    image: "/projects/pustakalay.png",
+    tags: ["Node.js", "Express", "MongoDB", "JWT", "REST API"],
   },
 ];
 
@@ -95,6 +87,13 @@ export default function Projects() {
                 <CardBody className="bg-black/40 backdrop-blur-sm rounded-xl p-4 h-[450px] flex flex-col border border-white/10 hover:border-white/20 transition-all duration-300">
                   <CardItem translateZ="100" className="w-full flex-grow">
                     <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden group">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 via-pink-500/30 to-blue-500/30 group-hover:from-purple-500/40 group-hover:via-pink-500/40 group-hover:to-blue-500/40 transition-all duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
                         {project.title}
@@ -189,7 +188,7 @@ export default function Projects() {
                     exciting projects and opportunities.
                   </p>
                   <a
-                    href="mailto:your.email@example.com"
+                    href="mailto:vipulsingh.1404@gmail.com"
                     className="inline-block px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-blue-500/30 rounded-xl hover:from-purple-500/40 hover:via-pink-500/40 hover:to-blue-500/40 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/20"
                   >
                     Get in Touch

@@ -26,7 +26,7 @@ const IntroSection = () => {
     setIsTurning(true);
     setTimeout(() => {
       window.open(
-        "https://drive.google.com/file/d/your-file-id/view",
+        "https://drive.google.com/file/d/1jjaexl2vAMQLkO79GyqXlDBC9PQcQP4q/view?usp=sharing",
         "_blank"
       );
       setIsTurning(false);

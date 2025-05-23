@@ -3,22 +3,40 @@ import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { SkillCard } from "@/components/ui/skill-card";
 import { motion } from "framer-motion";
 import { CrushedPaperTexture } from "@/components/ui/crushed-paper-texture";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiRedux,
+  SiJavascript,
+  SiTypescript,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiFramer,
+  SiGithub,
+  SiAmazon,
+  SiDocker,
+} from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 const skills = [
-  { name: "React JS", icon: "⚛️" },
-  { name: "Next JS", icon: "▲" },
-  { name: "Tailwind CSS", icon: "🎨" },
-  { name: "Redux", icon: "🔄" },
-  { name: "JavaScript", icon: "📜" },
-  { name: "TypeScript", icon: "📘" },
-  { name: "Node JS", icon: "🟢" },
-  { name: "Express JS", icon: "🚂" },
-  { name: "MongoDB", icon: "🍃" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "Framer Motion", icon: "✨" },
-  { name: "Python", icon: "🐍" },
-  { name: "GitHub", icon: "🐙" },
-  { name: "VS Code", icon: "💻" },
+  { name: "React JS", icon: SiReact },
+  { name: "Next JS", icon: SiNextdotjs },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "Redux", icon: SiRedux },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Node JS", icon: SiNodedotjs },
+  { name: "Express JS", icon: SiExpress },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "Framer Motion", icon: SiFramer },
+  { name: "AWS", icon: SiAmazon },
+  { name: "Docker", icon: SiDocker },
+  { name: "GitHub", icon: SiGithub },
+  { name: "VS Code", icon: VscVscode },
 ];
 
 const container = {

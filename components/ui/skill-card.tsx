@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import { IconType } from "react-icons";
 
 interface SkillCardProps {
   name: string;
-  icon: string;
+  icon: IconType;
 }
 
-export function SkillCard({ name, icon }: SkillCardProps) {
+export function SkillCard({ name, icon: Icon }: SkillCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -23,7 +24,7 @@ export function SkillCard({ name, icon }: SkillCardProps) {
           transition={{ duration: 0.3 }}
           className="text-3xl"
         >
-          {icon}
+          <Icon className="w-8 h-8" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
