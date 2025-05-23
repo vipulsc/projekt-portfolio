@@ -18,6 +18,8 @@ import {
   SiGithub,
   SiAmazon,
   SiDocker,
+  SiSolana,
+  SiZod,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
@@ -37,6 +39,8 @@ const skills = [
   { name: "Docker", icon: SiDocker },
   { name: "GitHub", icon: SiGithub },
   { name: "VS Code", icon: VscVscode },
+  { name: "Solana", icon: SiSolana },
+  { name: "Zod", icon: SiZod },
 ];
 
 const container = {

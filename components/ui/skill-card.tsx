@@ -6,7 +6,32 @@ interface SkillCardProps {
   icon: IconType;
 }
 
+const getIconColor = (name: string) => {
+  const colors: { [key: string]: string } = {
+    "React JS": "#61DAFB",
+    "Next JS": "#FFFFFF",
+    "Tailwind CSS": "#06B6D4",
+    Redux: "#764ABC",
+    JavaScript: "#F7DF1E",
+    TypeScript: "#3178C6",
+    "Node JS": "#339933",
+    "Express JS": "#FFFFFF",
+    MongoDB: "#47A248",
+    PostgreSQL: "#336791",
+    "Framer Motion": "#0055FF",
+    AWS: "#FF9900",
+    Docker: "#2496ED",
+    GitHub: "#FFFFFF",
+    "VS Code": "#007ACC",
+    Solana: "#9945FF",
+    Zod: "#E33E5A",
+  };
+  return colors[name] || "#FFFFFF";
+};
+
 export function SkillCard({ name, icon: Icon }: SkillCardProps) {
+  const iconColor = getIconColor(name);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -23,6 +48,7 @@ export function SkillCard({ name, icon: Icon }: SkillCardProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.3 }}
           className="text-3xl"
+          style={{ color: iconColor }}
         >
           <Icon className="w-8 h-8" />
         </motion.div>
