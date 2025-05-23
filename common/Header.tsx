@@ -57,7 +57,7 @@ export default function Header() {
             </Link>
             <div className="hidden md:flex items-center gap-10 text-sm">
               {[
-                { name: "About", id: "intro" },
+                { name: "About me", id: "intro" },
                 { name: "Projects", id: "projects" },
                 { name: "Skills", id: "skills" },
                 { name: "Contact", id: "contact" },

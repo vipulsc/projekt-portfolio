@@ -1,8 +1,8 @@
 "use client";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
-import { BackgroundBeamsWithCollision } from "@/components/ui/bg-beams";
 import { SkillCard } from "@/components/ui/skill-card";
 import { motion } from "framer-motion";
+import { CrushedPaperTexture } from "@/components/ui/crushed-paper-texture";
 
 const skills = [
   { name: "React JS", icon: "⚛️" },
@@ -47,10 +47,11 @@ const item = {
 
 export default function Skills() {
   return (
-    <BackgroundBeamsWithCollision className="min-h-screen h-auto bg-black">
+    <div className="relative min-h-screen h-auto bg-black">
+      <CrushedPaperTexture />
       <div
         id="skills"
-        className="flex flex-col items-center justify-center w-full px-18 py-32 md:py-40"
+        className="flex flex-col items-center justify-center w-full px-18 py-32 md:py-40 relative z-10"
       >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -76,6 +77,6 @@ export default function Skills() {
           ))}
         </motion.div>
       </div>
-    </BackgroundBeamsWithCollision>
+    </div>
   );
 }
