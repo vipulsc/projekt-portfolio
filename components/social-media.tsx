@@ -23,23 +23,23 @@ const SocialMedia = () => {
 const links: { name: string; url: string; icon: React.ReactNode }[] = [
   {
     name: "GitHub",
-    url: "https://github.com/vipulsc",
-    icon: <FaGithub className="text-[#333333] dark:text-white" />,
+    url: "https://github.com/yourusername",
+    icon: <FaGithub className="text-white" />,
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/vipulsingh14",
-    icon: <FaLinkedin className="text-[#0077B5] dark:text-[#0077B5]" />,
+    url: "https://linkedin.com/in/yourusername",
+    icon: <FaLinkedin className="text-[#0077B5]" />,
   },
   {
-    name: "X",
-    url: "https://x.com/vipulsc1",
-    icon: <FaXTwitter className="text-black dark:text-white" />,
+    name: "Twitter",
+    url: "https://twitter.com/yourusername",
+    icon: <FaXTwitter className="text-white" />,
   },
   {
     name: "Email",
-    url: "mailto:vipulsc14@gmail.com",
-    icon: <FaEnvelope className="text-[#EA4335] dark:text-[#EA4335]" />,
+    url: "mailto:your.email@example.com",
+    icon: <FaEnvelope className="text-[#EA4335]" />,
   },
 ];
 

@@ -38,7 +38,7 @@ export default function HeroSection() {
           className="flex flex-col gap-2 text-center order-2 sm:order-1"
         >
           <div>
-            <h1 className="font-bold text-blue-500 dark:text-blue-500 text-4xl md:text-5xl sm:text-4xl font-['Roboto_Slab']">
+            <h1 className="font-bold text-blue-500 text-4xl md:text-5xl sm:text-4xl font-['Roboto_Slab']">
               Vipul Singh
             </h1>
           </div>
