@@ -191,6 +191,8 @@ export default function Projects() {
                   </p>
                   <a
                     href="https://calendly.com/singhvipul-1401s/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-blue-500/30 rounded-xl hover:from-purple-500/40 hover:via-pink-500/40 hover:to-blue-500/40 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/20"
                   >
                     Get in Touch
