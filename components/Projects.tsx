@@ -4,6 +4,7 @@ import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { BackgroundBeamsWithCollision } from "@/components/ui/bg-beams";
 import useEmblaCarousel from "embla-carousel-react";
 import { useState } from "react";
+import { Vortex } from "./ui/vortex";
 
 const allProjects = [
   {
@@ -80,7 +81,7 @@ export default function Projects() {
   const additionalProjects = allProjects.slice(4, visibleProjects);
 
   return (
-    <BackgroundBeamsWithCollision className="min-h-screen h-auto py-[50px] bg-black">
+    <BackgroundBeamsWithCollision className="min-h-screen h-auto py-[50px] pt-[100px] bg-black">
       <div
         id="projects"
         className="flex flex-col items-center justify-center px-4"
@@ -161,7 +162,7 @@ export default function Projects() {
 
           {/* Additional Projects Grid */}
           {additionalProjects.length > 0 && (
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="-mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
               {additionalProjects.map((project, index) => (
                 <CardContainer key={index} className="w-full">
                   <CardBody className="bg-black/40 backdrop-blur-sm rounded-xl p-4 h-[450px] flex flex-col border border-white/10 hover:border-white/20 transition-all duration-300">
@@ -244,25 +245,31 @@ export default function Projects() {
         </div>
 
         {/* Hire Me Section */}
-        <div className="mt-16 mb-2 w-full max-w-4xl mx-auto">
+        <div className="mt-16 mb-8 w-full max-w-4xl mx-auto">
           <div className="relative overflow-hidden rounded-2xl backdrop-blur-sm bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 p-[1px]">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 animate-gradient-x opacity-50"></div>
-            <div className="relative bg-black/40 backdrop-blur-sm rounded-2xl p-10">
-              <div className="text-center">
-                <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 mb-4">
-                  Let&apos;s Create Something Amazing
-                </h2>
-                <p className="text-neutral-300 mb-8 text-lg max-w-2xl mx-auto">
-                  Ready to bring your ideas to life? I&apos;m available for
-                  exciting projects and opportunities.
-                </p>
-                <a
-                  href="mailto:your.email@example.com"
-                  className="inline-block px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-blue-500/30 rounded-xl hover:from-purple-500/40 hover:via-pink-500/40 hover:to-blue-500/40 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/20"
-                >
-                  Get in Touch
-                </a>
-              </div>
+
+            <div className="relative bg-black/40 backdrop-blur-xs rounded-2xl p-10">
+              <Vortex
+                backgroundColor="black"
+                className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
+              >
+                <div className="text-center">
+                  <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 mb-4">
+                    Let&apos;s Create Something Amazing
+                  </h2>
+                  <p className="text-neutral-300 mb-8 text-lg max-w-2xl mx-auto">
+                    Ready to bring your ideas to life? I&apos;m available for
+                    exciting projects and opportunities.
+                  </p>
+                  <a
+                    href="mailto:your.email@example.com"
+                    className="inline-block px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-blue-500/30 rounded-xl hover:from-purple-500/40 hover:via-pink-500/40 hover:to-blue-500/40 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/20"
+                  >
+                    Get in Touch
+                  </a>
+                </div>
+              </Vortex>
             </div>
           </div>
         </div>
