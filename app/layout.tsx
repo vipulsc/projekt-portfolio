@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import Header from "@/common/Header";
-
+import { Analytics } from "@vercel/analytics/next";
 // Fonts setup
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -80,6 +80,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   );
