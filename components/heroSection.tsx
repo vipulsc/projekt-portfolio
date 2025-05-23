@@ -27,7 +27,7 @@ const words = [
 ];
 export default function HeroSection() {
   return (
-    <div id="hero" className="relative w-full h-screen">
+    <div id="/" className="relative w-full h-screen">
       <BackgroundBeams />
 
       <div className="flex flex-col sm:flex-row items-center sm:justify-center h-full gap-10 sm:gap-32 px-10 pt-30 sm:pt-0 relative z-10">
