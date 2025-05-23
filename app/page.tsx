@@ -2,6 +2,7 @@ import HeroSection from "@/components/heroSection";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import IntroSection from "@/components/IntroSection";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <IntroSection />
         <Projects />
         <Skills />
+        <ContactForm />
       </div>
     </div>
   );
