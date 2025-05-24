@@ -78,9 +78,10 @@ export default function HeroSection() {
             <div className="absolute inset-0  bg-gradient-to-r from-purple-500/30 via-purple-500/60 to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-3xl " />
             <Image
               src="/icon.png"
-              alt="Profile Photo"
+              alt="Vipul Singh - Full Stack Developer"
               width={600}
               height={300}
+              priority
               className="rounded-full pt-10 sm:pt-15 md:pt-20 object-cover relative z-10 bg-black/40"
             />
           </div>
